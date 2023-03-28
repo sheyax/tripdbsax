@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "index.js",
+        "use": "@now/node-server",
+        "config": {
+            "nodeVersion": "12.18.3",
+            "framework": "express"
+        }
+    }]
+}

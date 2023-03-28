@@ -1,11 +1,12 @@
 {
     "version": 2,
-    "builds": [{
-        "src": "index.js",
-        "use": "@vercel/node",
-        "config": {
-            "nodeVersion": "12.18.3",
+    "builds": [],
+    "build": {
+        "env": {
+
             "runtime": "nodejs"
-        }
-    }]
+        },
+        "src": "index.js",
+        "use": "@vercel/node"
+    }
 }

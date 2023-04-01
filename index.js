@@ -12,29 +12,29 @@ require("./db");
 const app = express();
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
-app.use(cookieSession({
-    secret: 'sxfsfdjs',
-    cookie: {
-        maxAge: 1000 * 60 * 60,
-        sameSite: "lax",
-        secure: false
-    }
-}))
-
 app.use(
-    cors({
-        credentials: true,
-        origin: ['http://localhost:3000']
-    })
+  cookieSession({
+    secret: "sxfsfdjs",
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      sameSite: "lax",
+      secure: false,
+    },
+  })
 );
 
-
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"],
+  })
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var auth = require("./routes/authentication");
-var feed = require("./routes/datafeed")
+var feed = require("./routes/datafeed");
 
 // app.get('/set-cookies', (req, res) => {
 //     // res.setHeader('Set-Cookie', 'newUser=true')
@@ -42,8 +42,8 @@ var feed = require("./routes/datafeed")
 //     res.send('you have the cookies')
 // })
 
-app.listen(5000, () => {
-    console.log("server running ");
+app.listen(5001, () => {
+  console.log("server running ");
 });
 
 app.use("/auth", auth);

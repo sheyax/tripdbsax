@@ -7,13 +7,21 @@ var ObjectId = require("mongoose").Types.ObjectId;
 //get all drivers
 
 router.get("/drivers", async (req, res) => {
-  await Driver.find((err, docs) => {
-    if (!err) {
-      res.send(docs);
-    } else {
-      console.log("Error retrieving data" + JSON.stringify(err, undefined, 2));
-    }
-  });
+  //   await Driver.find((err, docs) => {
+  //     if (!err) {
+  //       res.send(docs);
+  //     } else {
+  //       console.log("Error retrieving data" + JSON.stringify(err, undefined, 2));
+  //     }
+  //   });
+
+  const driver = await Driver.find();
+  if (!driver) {
+    console.log("error");
+    res.send("error getting data");
+  } else {
+    res.send(driver);
+  }
 });
 
 //get driver by id..............................................................

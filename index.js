@@ -26,7 +26,7 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    origin: ["*"],
+    origin: ["https://ogo8ul-3000.csb.app/"],
   })
 );
 
